@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import CountdownTimer from '@/components/CountdownTimer';
 import EmailCapture from '@/components/EmailCapture';
+import FleurDeLis, { FleurDeLisDivider } from '@/components/FleurDeLis';
 import { 
   BookOpen, Users, Lightbulb, Star, CheckCircle, 
   Play, Award, Camera, Ticket, Flame, 
@@ -32,79 +33,119 @@ export default function DarkLandingPage() {
   const pageRef = useReveal();
 
   return (
-    <div ref={pageRef} className="dark-theme min-h-screen bg-dark-900 text-white overflow-x-hidden">
+    <div ref={pageRef} className="dark-theme min-h-screen bg-dark-800 text-white overflow-x-hidden">
       
-      {/* ══════════ HERO ══════════ */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-700/50 to-dark-900" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,160,18,0.08)_0%,transparent_70%)]" />
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500/30 to-transparent" />
+      {/* ══════════ HERO - Cinematic Banner ══════════ */}
+      <section className="relative min-h-screen flex flex-col overflow-hidden">
+        {/* Full-width cinematic background */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-batalha.jpg"
+            alt="O Despertar da Fé - Junte-se na única batalha que salva"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          {/* Bottom gradient for content readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/30 to-transparent" />
+          {/* Top subtle gradient for header area */}
+          <div className="absolute inset-0 bg-gradient-to-b from-dark-800/60 via-transparent to-transparent" />
+        </div>
+
+        {/* Fleur-de-lis subtle background pattern */}
+        <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
+
+        {/* Floating fleur-de-lis decorative accents */}
+        <div className="absolute top-16 left-8 animate-float pointer-events-none hidden md:block">
+          <FleurDeLis size={50} opacity={0.08} />
+        </div>
+        <div className="absolute top-24 right-12 animate-float pointer-events-none hidden md:block" style={{ animationDelay: '1.5s' }}>
+          <FleurDeLis size={40} opacity={0.06} />
+        </div>
         
-        {/* Floating particles */}
-        <div className="absolute top-20 left-10 w-2 h-2 bg-gold-500/30 rounded-full animate-float" />
-        <div className="absolute top-40 right-20 w-1.5 h-1.5 bg-gold-500/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-40 left-1/4 w-1 h-1 bg-gold-500/40 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-        
-        <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left - Text */}
-            <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 mb-8 animate-fade-in">
-                <Flame className="w-4 h-4 text-gold-500" />
-                <span className="text-gold-400 text-sm font-medium tracking-wider uppercase">Curso Online Exclusivo</span>
-              </div>
-              
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-black leading-[0.95] mb-6 animate-slide-up">
-                <span className="text-white">O</span>
-                <br />
-                <span className="text-gradient-gold">Despertar</span>
-                <br />
-                <span className="text-white">da </span>
-                <span className="text-gradient-gold">Fé</span>
-              </h1>
-              
-              <p className="text-lg text-gray-400 max-w-lg mb-10 animate-fade-in leading-relaxed" style={{ animationDelay: '0.3s' }}>
-                Uma jornada transformadora que vai despertar o poder da fé na sua vida.
-                Descubra uma vida plena, com propósito e cheia de significado.
-              </p>
-              
-              <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-                <EmailCapture variant="dark" buttonText="🔔 Avise-me" />
-                <p className="text-gray-600 text-xs mt-4">Seja o primeiro a saber quando as inscrições abrirem</p>
-              </div>
+        {/* Top: Logo */}
+        <div className="relative z-10 pt-8 px-4">
+          <div className="max-w-6xl mx-auto flex justify-center md:justify-start">
+            <div className="relative w-32 h-32 md:w-40 md:h-40 animate-fade-in">
+              <Image
+                src="/images/logo-despertar.jpeg"
+                alt="Despertar da Fé - Logo"
+                fill
+                className="object-contain rounded-2xl drop-shadow-2xl"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Spacer to push content to bottom */}
+        <div className="flex-1" />
+
+        {/* Bottom: CTA section over the cinematic banner */}
+        <div className="relative z-10 pb-16 px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-dark-800/60 backdrop-blur-sm mb-6 animate-fade-in">
+              <Flame className="w-4 h-4 text-gold-500" />
+              <span className="text-gold-400 text-sm font-medium tracking-wider uppercase">Curso Online Exclusivo</span>
             </div>
             
-            {/* Right - Photo */}
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <div className="relative aspect-[3/4] max-w-md mx-auto rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/victor-portrait.jpeg"
-                  alt="Victor - O Despertar da Fé"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent" />
-              </div>
-              {/* Gold corner accents */}
-              <div className="absolute -top-2 -left-2 w-10 h-10 border-t-2 border-l-2 border-gold-500/50 rounded-tl-lg" />
-              <div className="absolute -top-2 -right-2 w-10 h-10 border-t-2 border-r-2 border-gold-500/50 rounded-tr-lg" />
-              <div className="absolute -bottom-2 -left-2 w-10 h-10 border-b-2 border-l-2 border-gold-500/50 rounded-bl-lg" />
-              <div className="absolute -bottom-2 -right-2 w-10 h-10 border-b-2 border-r-2 border-gold-500/50 rounded-br-lg" />
+            <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-8 animate-fade-in leading-relaxed drop-shadow-lg" style={{ animationDelay: '0.3s' }}>
+              Uma jornada transformadora que vai despertar o poder da fé na sua vida.
+              Descubra uma vida plena, com propósito e cheia de significado.
+            </p>
+            
+            <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <EmailCapture variant="dark" buttonText="🔔 Avise-me" />
+              <p className="text-gray-400 text-xs mt-4 drop-shadow-md">Seja o primeiro a saber quando as inscrições abrirem</p>
             </div>
           </div>
         </div>
         
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-6 h-6 text-gold-500/40" />
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10">
+          <ChevronDown className="w-6 h-6 text-gold-500/60" />
+        </div>
+      </section>
+
+      {/* ══════════ BISHOP + VIKTOR FEATURE BANNER ══════════ */}
+      <section className="relative py-0 overflow-hidden">
+        <div className="relative w-full aspect-[16/7] md:aspect-[16/6]">
+          <Image
+            src="/images/banner-hero.jpeg"
+            alt="Bispo Dom Rodrigo e Viktor - O Despertar da Fé"
+            fill
+            className="object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark-800/60 via-transparent to-dark-800/60" />
+          {/* Fleur accent corners */}
+          <div className="absolute top-4 left-4 pointer-events-none hidden md:block">
+            <FleurDeLis size={36} opacity={0.15} color="#D4A012" />
+          </div>
+          <div className="absolute top-4 right-4 pointer-events-none hidden md:block">
+            <FleurDeLis size={36} opacity={0.15} color="#D4A012" />
+          </div>
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-center">
+            <p className="text-gold-400 font-serif text-lg md:text-2xl font-bold drop-shadow-lg">
+              Bispo Dom Rodrigo & Viktor
+            </p>
+            <p className="text-gray-300 text-sm mt-1 drop-shadow-md">
+              Unidos na batalha da fé
+            </p>
+          </div>
         </div>
       </section>
 
       {/* ══════════ O QUE É ══════════ */}
       <section className="py-24 px-4 relative">
-        <div className="section-divider-gold mb-24" />
-        <div className="max-w-5xl mx-auto">
+        {/* Fleur-de-lis divider */}
+        <FleurDeLisDivider className="mb-20" />
+
+        {/* Background fleur accent */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <FleurDeLis size={300} opacity={0.025} />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="reveal text-center mb-16">
             <span className="text-gold-500/60 text-sm font-medium tracking-[0.3em] uppercase">Sobre o curso</span>
             <h2 className="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6">
@@ -119,7 +160,7 @@ export default function DarkLandingPage() {
                 O <strong className="text-gold-400">Despertar da Fé</strong> é mais do que um curso — é uma experiência imersiva projetada para transformar sua relação com a fé, com Deus e consigo mesmo.
               </p>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Através de aulas profundas, materiais exclusivos e uma comunidade engajada, você será guiado em uma jornada de autoconhecimento e renovação espiritual que vai impactar todas as áreas da sua vida.
+                Sob a orientação espiritual de <strong className="text-gold-400/80">Dom Rodrigo</strong>, Bispo e autoridade eclesiástica, e com a condução de <strong className="text-gold-400/80">Viktor</strong>, você será guiado em uma jornada de autoconhecimento e renovação espiritual que vai impactar todas as áreas da sua vida.
               </p>
               <div className="flex flex-wrap gap-3">
                 {['Aulas em vídeo', 'Material exclusivo', 'Comunidade', 'Certificado'].map((item) => (
@@ -134,23 +175,59 @@ export default function DarkLandingPage() {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-glow-gold">
                 <Image
                   src="/images/victor-dom-rodrigo.jpeg"
-                  alt="Victor com Dom Rodrigo"
+                  alt="Bispo Dom Rodrigo e Viktor"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-800/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white/80 text-sm font-medium">Victor com Dom Rodrigo</p>
+                  <p className="text-white/90 text-sm font-medium">Bispo Dom Rodrigo & Viktor</p>
                 </div>
               </div>
+              {/* Fleur accent on photo */}
+              <div className="absolute -top-4 -right-4 pointer-events-none">
+                <FleurDeLis size={36} opacity={0.15} />
+              </div>
+            </div>
+          </div>
+
+          {/* Second photo - Bishop + Viktor selfie */}
+          <div className="reveal mt-16 grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative order-2 md:order-1">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-glow-gold">
+                <Image
+                  src="/images/victor-dom-rodrigo-selfie.jpeg"
+                  alt="Bispo Dom Rodrigo e Viktor - momento informal"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-800/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-white/90 text-sm font-medium">Dom Rodrigo & Viktor — Unidos pela fé</p>
+                </div>
+              </div>
+              <div className="absolute -bottom-3 -left-3 pointer-events-none">
+                <FleurDeLis size={32} opacity={0.12} />
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <p className="text-gray-300 text-lg leading-relaxed mb-4">
+                Através de aulas profundas, materiais exclusivos e uma comunidade engajada, você terá acesso ao conhecimento construído em <strong className="text-gold-400">peregrinações e missões</strong> por igrejas e catedrais ao redor do mundo.
+              </p>
+              <p className="text-gray-400 leading-relaxed">
+                Uma parceria entre a tradição da Igreja, representada por Dom Rodrigo, e a experiência vivida de Viktor nas terras santas da Europa.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ══════════ PARA QUEM ══════════ */}
-      <section className="py-24 px-4 bg-gradient-to-b from-dark-900 via-dark-800/50 to-dark-900">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-24 px-4 bg-gradient-to-b from-dark-800 via-dark-700/50 to-dark-800 relative">
+        {/* Fleur pattern background */}
+        <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
+        
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="reveal text-center mb-16">
             <span className="text-gold-500/60 text-sm font-medium tracking-[0.3em] uppercase">Público-alvo</span>
             <h2 className="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6">
@@ -168,7 +245,7 @@ export default function DarkLandingPage() {
               { icon: Lightbulb, title: 'Curiosos espirituais', desc: 'Quem busca compreender melhor a fé e seu papel na vida cotidiana.' },
               { icon: Star, title: 'Todos os níveis', desc: 'Seja iniciante ou experiente, o curso se adapta à sua jornada pessoal.' },
             ].map((item, i) => (
-              <div key={i} className="group p-6 rounded-2xl border border-gold-500/10 bg-dark-600/30 hover:border-gold-500/30 hover:bg-dark-500/30 transition-all duration-500">
+              <div key={i} className="group p-6 rounded-2xl border border-gold-500/10 bg-dark-600/40 backdrop-blur-sm hover:border-gold-500/30 hover:bg-dark-500/40 transition-all duration-500">
                 <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-4 group-hover:bg-gold-500/20 transition-colors">
                   <item.icon className="w-6 h-6 text-gold-500" />
                 </div>
@@ -182,8 +259,14 @@ export default function DarkLandingPage() {
 
       {/* ══════════ COMO FUNCIONA ══════════ */}
       <section className="py-24 px-4 relative">
-        <div className="section-divider-gold mb-24" />
-        <div className="max-w-5xl mx-auto">
+        <FleurDeLisDivider className="mb-20" />
+        
+        {/* Large background fleur */}
+        <div className="absolute bottom-10 right-10 pointer-events-none hidden lg:block">
+          <FleurDeLis size={200} opacity={0.02} />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="reveal text-center mb-16">
             <span className="text-gold-500/60 text-sm font-medium tracking-[0.3em] uppercase">Metodologia</span>
             <h2 className="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6">
@@ -200,7 +283,7 @@ export default function DarkLandingPage() {
               { step: '04', title: 'Comunidade e suporte', desc: 'Conecte-se com outros alunos e receba suporte durante toda a jornada de transformação.', icon: Users },
               { step: '05', title: 'Transformação', desc: 'Experimente uma fé renovada e desperta, vivendo com mais propósito e significado.', icon: Sparkles },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-6 p-6 rounded-2xl border border-gold-500/10 bg-dark-600/20 hover:border-gold-500/20 transition-all group">
+              <div key={i} className="flex items-start gap-6 p-6 rounded-2xl border border-gold-500/10 bg-dark-600/30 hover:border-gold-500/20 transition-all group">
                 <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/20 to-gold-600/10 flex items-center justify-center group-hover:from-gold-500/30 group-hover:to-gold-600/20 transition-all">
                   <span className="text-gold-500 font-serif text-2xl font-bold">{item.step}</span>
                 </div>
@@ -217,9 +300,11 @@ export default function DarkLandingPage() {
         </div>
       </section>
 
-      {/* ══════════ MATERIAIS EXTRAS ══════════ */}
-      <section className="py-24 px-4 bg-gradient-to-b from-dark-900 via-dark-800/50 to-dark-900">
-        <div className="max-w-5xl mx-auto">
+      {/* ══════════ MATERIAIS EXTRAS + GALLERY ══════════ */}
+      <section className="py-24 px-4 bg-gradient-to-b from-dark-800 via-dark-700/50 to-dark-800 relative">
+        <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="reveal text-center mb-16">
             <span className="text-gold-500/60 text-sm font-medium tracking-[0.3em] uppercase">Inclusos</span>
             <h2 className="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6">
@@ -235,7 +320,7 @@ export default function DarkLandingPage() {
               { icon: Users, title: 'Grupo Exclusivo', desc: 'Comunidade fechada para troca de experiências e networking espiritual.' },
               { icon: Award, title: 'Certificado', desc: 'Certificado de conclusão ao completar todos os módulos do curso.' },
             ].map((item, i) => (
-              <div key={i} className="text-center p-6 rounded-2xl border border-gold-500/10 bg-dark-600/20 hover:border-gold-500/25 transition-all group">
+              <div key={i} className="text-center p-6 rounded-2xl border border-gold-500/10 bg-dark-600/30 hover:border-gold-500/25 transition-all group">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-500/20 to-gold-600/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <item.icon className="w-7 h-7 text-gold-500" />
                 </div>
@@ -245,17 +330,42 @@ export default function DarkLandingPage() {
             ))}
           </div>
           
-          {/* Photo gallery strip */}
-          <div className="reveal mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {/* Photo gallery — Viktor's journey */}
+          <div className="reveal mt-16">
+            <h3 className="text-center text-lg font-serif font-semibold text-gray-300 mb-8">
+              <Globe className="w-5 h-5 inline mr-2 text-gold-500" />
+              Conhecimento de peregrinações ao redor do mundo
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { src: '/images/victor-vatican.jpeg', label: 'Vaticano' },
+                { src: '/images/victor-kyiv.jpeg', label: 'Kyiv' },
+                { src: '/images/victor-lithuania.jpeg', label: 'Lituânia' },
+                { src: '/images/victor-ukraine.jpeg', label: 'Ucrânia' },
+              ].map((photo, i) => (
+                <div key={i} className="relative aspect-[4/3] rounded-xl overflow-hidden group">
+                  <Image src={photo.src} alt={photo.label} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-800/80 to-transparent" />
+                  <div className="absolute bottom-2 left-3 flex items-center gap-1">
+                    <MapPin className="w-3 h-3 text-gold-400" />
+                    <span className="text-white/80 text-xs font-medium">{photo.label}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Additional photos - more of Viktor's travels */}
+          <div className="reveal mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { src: '/images/victor-vatican.jpeg', label: 'Vaticano' },
-              { src: '/images/victor-kyiv.jpeg', label: 'Kyiv' },
-              { src: '/images/victor-lithuania.jpeg', label: 'Lituânia' },
-              { src: '/images/victor-ukraine.jpeg', label: 'Ucrânia' },
+              { src: '/images/victor-white.jpeg', label: 'Ucrânia' },
+              { src: '/images/victor-green.jpeg', label: 'São Jorge' },
+              { src: '/images/victor-vilnius.jpeg', label: 'Vilnius' },
+              { src: '/images/victor-community.jpeg', label: 'Comunidade' },
             ].map((photo, i) => (
               <div key={i} className="relative aspect-[4/3] rounded-xl overflow-hidden group">
                 <Image src={photo.src} alt={photo.label} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-800/80 to-transparent" />
                 <div className="absolute bottom-2 left-3 flex items-center gap-1">
                   <MapPin className="w-3 h-3 text-gold-400" />
                   <span className="text-white/80 text-xs font-medium">{photo.label}</span>
@@ -263,17 +373,22 @@ export default function DarkLandingPage() {
               </div>
             ))}
           </div>
-          <p className="reveal text-center text-gray-500 text-sm mt-4">
-            <Globe className="w-4 h-4 inline mr-1" />
-            Conhecimento adquirido em peregrinações por igrejas e catedrais ao redor do mundo
-          </p>
         </div>
       </section>
 
       {/* ══════════ PREÇOS / LOTES ══════════ */}
       <section className="py-24 px-4 relative" id="preco">
-        <div className="section-divider-gold mb-24" />
-        <div className="max-w-6xl mx-auto">
+        <FleurDeLisDivider className="mb-20" />
+
+        {/* Decorative fleur accents */}
+        <div className="absolute top-20 left-8 pointer-events-none hidden lg:block">
+          <FleurDeLis size={80} opacity={0.035} />
+        </div>
+        <div className="absolute bottom-20 right-8 pointer-events-none hidden lg:block">
+          <FleurDeLis size={80} opacity={0.035} />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="reveal text-center mb-16">
             <span className="text-gold-500/60 text-sm font-medium tracking-[0.3em] uppercase">Investimento</span>
             <h2 className="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6">
@@ -377,8 +492,13 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ BÔNUS LOTE 1 ══════════ */}
-      <section className="py-24 px-4 bg-gradient-to-b from-dark-900 via-dark-800/30 to-dark-900 relative">
+      <section className="py-24 px-4 bg-gradient-to-b from-dark-800 via-dark-700/30 to-dark-800 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,160,18,0.05)_0%,transparent_50%)]" />
+        {/* Fleur accent */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <FleurDeLis size={250} opacity={0.02} />
+        </div>
+
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="reveal text-center mb-16">
             <span className="text-gold-500/60 text-sm font-medium tracking-[0.3em] uppercase">Exclusivo</span>
@@ -391,7 +511,7 @@ export default function DarkLandingPage() {
           </div>
           
           <div className="reveal grid md:grid-cols-3 gap-8">
-            <div className="group p-8 rounded-2xl border border-gold-500/20 bg-dark-600/30 hover:border-gold-500/40 transition-all text-center">
+            <div className="group p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/20 to-gold-600/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
                 <Play className="w-8 h-8 text-gold-500" />
               </div>
@@ -401,17 +521,17 @@ export default function DarkLandingPage() {
               </p>
             </div>
             
-            <div className="group p-8 rounded-2xl border border-gold-500/20 bg-dark-600/30 hover:border-gold-500/40 transition-all text-center">
+            <div className="group p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/20 to-gold-600/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
                 <Camera className="w-8 h-8 text-gold-500" />
               </div>
               <h3 className="text-xl font-serif font-bold text-gold-400 mb-3">Foto Lado a Lado Exclusiva</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Uma foto especial e exclusiva lado a lado com Victor, um momento único e memorável para guardar para sempre.
+                Uma foto especial e exclusiva lado a lado com Viktor, um momento único e memorável para guardar para sempre.
               </p>
             </div>
             
-            <div className="group p-8 rounded-2xl border border-gold-500/20 bg-dark-600/30 hover:border-gold-500/40 transition-all text-center">
+            <div className="group p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/20 to-gold-600/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
                 <Ticket className="w-8 h-8 text-gold-500" />
               </div>
@@ -434,14 +554,20 @@ export default function DarkLandingPage() {
             </h2>
           </div>
           <div className="reveal max-w-2xl mx-auto">
-            <div className="p-8 rounded-2xl border border-gold-500/15 bg-dark-600/20 text-center">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/15 to-gold-600/5 flex items-center justify-center mx-auto mb-5">
-                <Ticket className="w-8 h-8 text-gold-400/70" />
+            <div className="p-8 rounded-2xl border border-gold-500/15 bg-dark-600/30 text-center relative overflow-hidden">
+              {/* Fleur accent inside card */}
+              <div className="absolute -bottom-6 -right-6 pointer-events-none">
+                <FleurDeLis size={80} opacity={0.06} />
               </div>
-              <h3 className="text-xl font-serif font-bold text-white mb-3">30% Voucher Presencial 2026</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Membros do Lote 2 recebem <strong className="text-gold-400">30% de desconto</strong> no evento presencial O Despertar da Fé 2026. Garanta sua presença com condições especiais.
-              </p>
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/15 to-gold-600/5 flex items-center justify-center mx-auto mb-5">
+                  <Ticket className="w-8 h-8 text-gold-400/70" />
+                </div>
+                <h3 className="text-xl font-serif font-bold text-white mb-3">30% Voucher Presencial 2026</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Membros do Lote 2 recebem <strong className="text-gold-400">30% de desconto</strong> no evento presencial O Despertar da Fé 2026. Garanta sua presença com condições especiais.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -450,11 +576,20 @@ export default function DarkLandingPage() {
       {/* ══════════ CTA FINAL ══════════ */}
       <section className="py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,160,18,0.08)_0%,transparent_60%)]" />
-        <div className="section-divider-gold mb-24" />
+        <FleurDeLisDivider className="mb-20" />
+
+        {/* Fleur background accents */}
+        <div className="absolute top-1/4 left-8 pointer-events-none hidden lg:block">
+          <FleurDeLis size={60} opacity={0.04} />
+        </div>
+        <div className="absolute bottom-1/4 right-8 pointer-events-none hidden lg:block">
+          <FleurDeLis size={60} opacity={0.04} />
+        </div>
+
         <div className="reveal max-w-3xl mx-auto text-center relative z-10">
-          {/* Photo accent */}
+          {/* Logo accent */}
           <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-8 border-2 border-gold-500/40">
-            <Image src="/images/victor-closeup.jpeg" alt="Victor" fill className="object-cover" />
+            <Image src="/images/victor-closeup.jpeg" alt="Viktor" fill className="object-cover" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             Não perca essa <span className="text-gradient-gold">oportunidade</span>
@@ -471,6 +606,15 @@ export default function DarkLandingPage() {
       {/* ══════════ FOOTER ══════════ */}
       <footer className="py-12 px-4 border-t border-gold-500/10">
         <div className="max-w-5xl mx-auto text-center">
+          {/* Logo in footer */}
+          <div className="relative w-20 h-20 mx-auto mb-4">
+            <Image
+              src="/images/logo-despertar.jpeg"
+              alt="Despertar da Fé"
+              fill
+              className="object-contain rounded-xl"
+            />
+          </div>
           <h3 className="text-xl font-serif font-bold text-gradient-gold mb-2">O Despertar da Fé</h3>
           <p className="text-gray-600 text-sm">© {new Date().getFullYear()} O Despertar da Fé. Todos os direitos reservados.</p>
         </div>

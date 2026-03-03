@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark + Gold theme
+        // Dark + Gold theme (lighter dark tones)
         gold: {
           50: '#FFF9E6',
           100: '#FFF0BF',
@@ -23,16 +23,16 @@ const config: Config = {
           900: '#5C4306',
         },
         dark: {
-          50: '#2A2A2A',
-          100: '#242424',
-          200: '#1E1E1E',
-          300: '#181818',
-          400: '#141414',
-          500: '#111111',
-          600: '#0D0D0D',
-          700: '#0A0A0A',
-          800: '#070707',
-          900: '#030303',
+          50: '#3A3A42',
+          100: '#333340',
+          200: '#2C2C38',
+          300: '#252530',
+          400: '#1F1F2A',
+          500: '#1A1A24',
+          600: '#16161E',
+          700: '#121219',
+          800: '#0E0E14',
+          900: '#0B0B10',
         },
         // Light + Modern theme
         sage: {
@@ -63,13 +63,14 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-gold': 'linear-gradient(135deg, #D4A012 0%, #FFD966 50%, #B8860B 100%)',
-        'gradient-dark': 'linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)',
+        'gradient-dark': 'linear-gradient(180deg, #121219 0%, #1A1A24 100%)',
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out forwards',
         'slide-up': 'slideUp 0.8s ease-out forwards',
         'pulse-gold': 'pulseGold 2s ease-in-out infinite',
         'float': 'float 3s ease-in-out infinite',
+        'spin-slow': 'spin 20s linear infinite',
       },
       keyframes: {
         fadeIn: {
