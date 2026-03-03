@@ -36,20 +36,21 @@ export default function DarkLandingPage() {
     <div ref={pageRef} className="dark-theme min-h-screen bg-dark-800 text-white overflow-x-hidden">
       
       {/* ══════════ HERO - Cinematic Banner ══════════ */}
-      <section className="relative min-h-screen flex flex-col overflow-hidden">
-        {/* Full-width cinematic background */}
+      <section className="relative flex flex-col overflow-hidden" style={{ minHeight: '100svh' }}>
+        {/* Full-width cinematic background — show more on mobile */}
         <div className="absolute inset-0">
           <Image
             src="/images/hero-batalha.jpg"
             alt="O Despertar da Fé - Junte-se na única batalha que salva"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center md:object-center"
+            style={{ objectPosition: '50% 35%' }}
             priority
           />
           {/* Bottom gradient for content readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/40 to-transparent" />
           {/* Top subtle gradient for header area */}
-          <div className="absolute inset-0 bg-gradient-to-b from-dark-800/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark-800/50 via-transparent to-transparent" />
         </div>
 
         {/* Fleur-de-lis subtle background pattern */}
@@ -57,23 +58,17 @@ export default function DarkLandingPage() {
 
         {/* Floating fleur-de-lis decorative accents */}
         <div className="absolute top-16 left-8 animate-float pointer-events-none hidden md:block">
-          <FleurDeLis size={50} opacity={0.08} />
+          <FleurDeLis size={50} opacity={0.18} />
         </div>
         <div className="absolute top-24 right-12 animate-float pointer-events-none hidden md:block" style={{ animationDelay: '1.5s' }}>
-          <FleurDeLis size={40} opacity={0.06} />
+          <FleurDeLis size={40} opacity={0.16} />
         </div>
         
-        {/* Top: Logo */}
+        {/* Top: Fleur-de-lis accent */}
         <div className="relative z-10 pt-8 px-4">
           <div className="max-w-6xl mx-auto flex justify-center md:justify-start">
-            <div className="relative w-32 h-32 md:w-40 md:h-40 animate-fade-in">
-              <Image
-                src="/images/logo-despertar.jpeg"
-                alt="Despertar da Fé - Logo"
-                fill
-                className="object-contain rounded-2xl drop-shadow-2xl"
-                priority
-              />
+            <div className="animate-fade-in">
+              <FleurDeLis size={64} opacity={0.35} color="#D4A012" />
             </div>
           </div>
         </div>
@@ -111,22 +106,23 @@ export default function DarkLandingPage() {
         <div className="relative w-full aspect-[16/7] md:aspect-[16/6]">
           <Image
             src="/images/banner-hero.jpeg"
-            alt="Bispo Dom Rodrigo e Viktor - O Despertar da Fé"
+            alt="Bispo Dom Rodrigo e Victor Stavale - O Despertar da Fé"
             fill
-            className="object-cover object-top"
+            className="object-cover"
+            style={{ objectPosition: '50% 20%' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/50" />
           <div className="absolute inset-0 bg-gradient-to-r from-dark-800/60 via-transparent to-dark-800/60" />
           {/* Fleur accent corners */}
           <div className="absolute top-4 left-4 pointer-events-none hidden md:block">
-            <FleurDeLis size={36} opacity={0.15} color="#D4A012" />
+            <FleurDeLis size={36} opacity={0.25} color="#D4A012" />
           </div>
           <div className="absolute top-4 right-4 pointer-events-none hidden md:block">
-            <FleurDeLis size={36} opacity={0.15} color="#D4A012" />
+            <FleurDeLis size={36} opacity={0.25} color="#D4A012" />
           </div>
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-center">
             <p className="text-gold-400 font-serif text-lg md:text-2xl font-bold drop-shadow-lg">
-              Bispo Dom Rodrigo & Viktor
+              Bispo Dom Rodrigo & Victor Stavale
             </p>
             <p className="text-gray-300 text-sm mt-1 drop-shadow-md">
               Unidos na batalha da fé
@@ -142,7 +138,7 @@ export default function DarkLandingPage() {
 
         {/* Background fleur accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <FleurDeLis size={300} opacity={0.025} />
+          <FleurDeLis size={300} opacity={0.06} />
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -160,7 +156,7 @@ export default function DarkLandingPage() {
                 O <strong className="text-gold-400">Despertar da Fé</strong> é mais do que um curso — é uma experiência imersiva projetada para transformar sua relação com a fé, com Deus e consigo mesmo.
               </p>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Sob a orientação espiritual de <strong className="text-gold-400/80">Dom Rodrigo</strong>, Bispo e autoridade eclesiástica, e com a condução de <strong className="text-gold-400/80">Viktor</strong>, você será guiado em uma jornada de autoconhecimento e renovação espiritual que vai impactar todas as áreas da sua vida.
+                Sob a orientação espiritual de <strong className="text-gold-400/80">Dom Rodrigo</strong>, Bispo e autoridade eclesiástica, e com a condução de <strong className="text-gold-400/80">Victor Stavale</strong>, você será guiado em uma jornada de autoconhecimento e renovação espiritual que vai impactar todas as áreas da sua vida.
               </p>
               <div className="flex flex-wrap gap-3">
                 {['Aulas em vídeo', 'Material exclusivo', 'Comunidade', 'Certificado'].map((item) => (
@@ -175,39 +171,41 @@ export default function DarkLandingPage() {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-glow-gold">
                 <Image
                   src="/images/victor-dom-rodrigo.jpeg"
-                  alt="Bispo Dom Rodrigo e Viktor"
+                  alt="Bispo Dom Rodrigo e Victor Stavale"
                   fill
                   className="object-cover"
+                  style={{ objectPosition: '50% 15%' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-800/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white/90 text-sm font-medium">Bispo Dom Rodrigo & Viktor</p>
+                  <p className="text-white/90 text-sm font-medium">Bispo Dom Rodrigo & Victor Stavale</p>
                 </div>
               </div>
               {/* Fleur accent on photo */}
               <div className="absolute -top-4 -right-4 pointer-events-none">
-                <FleurDeLis size={36} opacity={0.15} />
+                <FleurDeLis size={36} opacity={0.25} />
               </div>
             </div>
           </div>
 
-          {/* Second photo - Bishop + Viktor selfie */}
+          {/* Second photo - Bishop + Victor Stavale selfie */}
           <div className="reveal mt-16 grid md:grid-cols-2 gap-8 items-center">
             <div className="relative order-2 md:order-1">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-glow-gold">
                 <Image
                   src="/images/victor-dom-rodrigo-selfie.jpeg"
-                  alt="Bispo Dom Rodrigo e Viktor - momento informal"
+                  alt="Bispo Dom Rodrigo e Victor Stavale - momento informal"
                   fill
                   className="object-cover"
+                  style={{ objectPosition: '50% 15%' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-800/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white/90 text-sm font-medium">Dom Rodrigo & Viktor — Unidos pela fé</p>
+                  <p className="text-white/90 text-sm font-medium">Dom Rodrigo & Victor Stavale — Unidos pela fé</p>
                 </div>
               </div>
               <div className="absolute -bottom-3 -left-3 pointer-events-none">
-                <FleurDeLis size={32} opacity={0.12} />
+                <FleurDeLis size={32} opacity={0.22} />
               </div>
             </div>
             <div className="order-1 md:order-2">
@@ -215,7 +213,7 @@ export default function DarkLandingPage() {
                 Através de aulas profundas, materiais exclusivos e uma comunidade engajada, você terá acesso ao conhecimento construído em <strong className="text-gold-400">peregrinações e missões</strong> por igrejas e catedrais ao redor do mundo.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                Uma parceria entre a tradição da Igreja, representada por Dom Rodrigo, e a experiência vivida de Viktor nas terras santas da Europa.
+                Uma parceria entre a tradição da Igreja, representada por Dom Rodrigo, e a experiência vivida de Victor Stavale nas terras santas da Europa.
               </p>
             </div>
           </div>
@@ -263,7 +261,7 @@ export default function DarkLandingPage() {
         
         {/* Large background fleur */}
         <div className="absolute bottom-10 right-10 pointer-events-none hidden lg:block">
-          <FleurDeLis size={200} opacity={0.02} />
+          <FleurDeLis size={200} opacity={0.05} />
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -330,7 +328,7 @@ export default function DarkLandingPage() {
             ))}
           </div>
           
-          {/* Photo gallery — Viktor's journey */}
+          {/* Photo gallery — Victor Stavale's journey */}
           <div className="reveal mt-16">
             <h3 className="text-center text-lg font-serif font-semibold text-gray-300 mb-8">
               <Globe className="w-5 h-5 inline mr-2 text-gold-500" />
@@ -355,7 +353,7 @@ export default function DarkLandingPage() {
             </div>
           </div>
 
-          {/* Additional photos - more of Viktor's travels */}
+          {/* Additional photos - more of Victor Stavale's travels */}
           <div className="reveal mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { src: '/images/victor-white.jpeg', label: 'Ucrânia' },
@@ -382,10 +380,10 @@ export default function DarkLandingPage() {
 
         {/* Decorative fleur accents */}
         <div className="absolute top-20 left-8 pointer-events-none hidden lg:block">
-          <FleurDeLis size={80} opacity={0.035} />
+          <FleurDeLis size={80} opacity={0.08} />
         </div>
         <div className="absolute bottom-20 right-8 pointer-events-none hidden lg:block">
-          <FleurDeLis size={80} opacity={0.035} />
+          <FleurDeLis size={80} opacity={0.08} />
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
@@ -496,7 +494,7 @@ export default function DarkLandingPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,160,18,0.05)_0%,transparent_50%)]" />
         {/* Fleur accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <FleurDeLis size={250} opacity={0.02} />
+          <FleurDeLis size={250} opacity={0.05} />
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -527,7 +525,7 @@ export default function DarkLandingPage() {
               </div>
               <h3 className="text-xl font-serif font-bold text-gold-400 mb-3">Foto Lado a Lado Exclusiva</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Uma foto especial e exclusiva lado a lado com Viktor, um momento único e memorável para guardar para sempre.
+                Uma foto especial e exclusiva lado a lado com Victor Stavale, um momento único e memorável para guardar para sempre.
               </p>
             </div>
             
@@ -557,7 +555,7 @@ export default function DarkLandingPage() {
             <div className="p-8 rounded-2xl border border-gold-500/15 bg-dark-600/30 text-center relative overflow-hidden">
               {/* Fleur accent inside card */}
               <div className="absolute -bottom-6 -right-6 pointer-events-none">
-                <FleurDeLis size={80} opacity={0.06} />
+                <FleurDeLis size={80} opacity={0.16} />
               </div>
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/15 to-gold-600/5 flex items-center justify-center mx-auto mb-5">
@@ -580,16 +578,16 @@ export default function DarkLandingPage() {
 
         {/* Fleur background accents */}
         <div className="absolute top-1/4 left-8 pointer-events-none hidden lg:block">
-          <FleurDeLis size={60} opacity={0.04} />
+          <FleurDeLis size={60} opacity={0.10} />
         </div>
         <div className="absolute bottom-1/4 right-8 pointer-events-none hidden lg:block">
-          <FleurDeLis size={60} opacity={0.04} />
+          <FleurDeLis size={60} opacity={0.10} />
         </div>
 
         <div className="reveal max-w-3xl mx-auto text-center relative z-10">
           {/* Logo accent */}
           <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-8 border-2 border-gold-500/40">
-            <Image src="/images/victor-closeup.jpeg" alt="Viktor" fill className="object-cover" />
+            <Image src="/images/victor-closeup.jpeg" alt="Victor Stavale" fill className="object-cover" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             Não perca essa <span className="text-gradient-gold">oportunidade</span>
@@ -606,14 +604,9 @@ export default function DarkLandingPage() {
       {/* ══════════ FOOTER ══════════ */}
       <footer className="py-12 px-4 border-t border-gold-500/10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Logo in footer */}
-          <div className="relative w-20 h-20 mx-auto mb-4">
-            <Image
-              src="/images/logo-despertar.jpeg"
-              alt="Despertar da Fé"
-              fill
-              className="object-contain rounded-xl"
-            />
+          {/* Fleur-de-lis in footer */}
+          <div className="flex justify-center mb-4">
+            <FleurDeLis size={48} opacity={0.35} color="#D4A012" />
           </div>
           <h3 className="text-xl font-serif font-bold text-gradient-gold mb-2">O Despertar da Fé</h3>
           <p className="text-gray-600 text-sm">© {new Date().getFullYear()} O Despertar da Fé. Todos os direitos reservados.</p>
