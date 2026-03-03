@@ -36,68 +36,85 @@ export default function DarkLandingPage() {
     <div ref={pageRef} className="dark-theme min-h-screen bg-dark-800 text-white overflow-x-hidden">
       
       {/* ══════════ HERO - Cinematic Banner ══════════ */}
-      <section className="relative flex flex-col overflow-hidden" style={{ minHeight: '100svh' }}>
-        {/* Full-width cinematic background — show more on mobile */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-batalha.jpg"
-            alt="O Despertar da Fé - Junte-se na única batalha que salva"
-            fill
-            className="object-cover object-center md:object-center"
-            style={{ objectPosition: '50% 35%' }}
-            priority
-          />
-          {/* Bottom gradient for content readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/40 to-transparent" />
-          {/* Top subtle gradient for header area */}
-          <div className="absolute inset-0 bg-gradient-to-b from-dark-800/50 via-transparent to-transparent" />
-        </div>
-
-        {/* Fleur-de-lis subtle background pattern */}
-        <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
-
-        {/* Floating fleur-de-lis decorative accents */}
-        <div className="absolute top-16 left-8 animate-float pointer-events-none hidden md:block">
-          <FleurDeLis size={50} opacity={0.18} />
-        </div>
-        <div className="absolute top-24 right-12 animate-float pointer-events-none hidden md:block" style={{ animationDelay: '1.5s' }}>
-          <FleurDeLis size={40} opacity={0.16} />
-        </div>
-        
-        {/* Top: Fleur-de-lis accent */}
-        <div className="relative z-10 pt-8 px-4">
-          <div className="max-w-6xl mx-auto flex justify-center md:justify-start">
-            <div className="animate-fade-in">
+      <section className="relative flex flex-col overflow-hidden bg-dark-800">
+        {/* DESKTOP: Full-screen background hero */}
+        <div className="hidden md:block relative" style={{ minHeight: '100vh' }}>
+          <div className="absolute inset-0">
+            <Image
+              src="/images/hero-batalha.jpg"
+              alt="O Despertar da Fé - Junte-se na única batalha que salva"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-dark-800/50 via-transparent to-transparent" />
+          </div>
+          <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
+          <div className="absolute top-16 left-8 animate-float pointer-events-none">
+            <FleurDeLis size={50} opacity={0.18} />
+          </div>
+          <div className="absolute top-24 right-12 animate-float pointer-events-none" style={{ animationDelay: '1.5s' }}>
+            <FleurDeLis size={40} opacity={0.16} />
+          </div>
+          {/* Top fleur accent */}
+          <div className="relative z-10 pt-8 px-4">
+            <div className="max-w-6xl mx-auto flex justify-start">
               <FleurDeLis size={64} opacity={0.35} color="#D4A012" />
             </div>
           </div>
-        </div>
-
-        {/* Spacer to push content to bottom */}
-        <div className="flex-1" />
-
-        {/* Bottom: CTA section over the cinematic banner */}
-        <div className="relative z-10 pb-16 px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-dark-800/60 backdrop-blur-sm mb-6 animate-fade-in">
-              <Flame className="w-4 h-4 text-gold-500" />
-              <span className="text-gold-400 text-sm font-medium tracking-wider uppercase">Curso Online Exclusivo</span>
-            </div>
-            
-            <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-8 animate-fade-in leading-relaxed drop-shadow-lg" style={{ animationDelay: '0.3s' }}>
-              Uma jornada transformadora que vai despertar o poder da fé na sua vida.
-              Descubra uma vida plena, com propósito e cheia de significado.
-            </p>
-            
-            <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <EmailCapture variant="dark" buttonText="🔔 Avise-me" />
-              <p className="text-gray-400 text-xs mt-4 drop-shadow-md">Seja o primeiro a saber quando as inscrições abrirem</p>
+          {/* Bottom CTA */}
+          <div className="absolute bottom-16 left-0 right-0 z-10 px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-dark-800/60 backdrop-blur-sm mb-6 animate-fade-in">
+                <Flame className="w-4 h-4 text-gold-500" />
+                <span className="text-gold-400 text-sm font-medium tracking-wider uppercase">Curso Online Exclusivo</span>
+              </div>
+              <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-8 animate-fade-in leading-relaxed drop-shadow-lg" style={{ animationDelay: '0.3s' }}>
+                Uma jornada transformadora que vai despertar o poder da fé na sua vida.
+                Descubra uma vida plena, com propósito e cheia de significado.
+              </p>
+              <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                <EmailCapture variant="dark" buttonText="🔔 Avise-me" />
+                <p className="text-gray-400 text-xs mt-4 drop-shadow-md">Seja o primeiro a saber quando as inscrições abrirem</p>
+              </div>
             </div>
           </div>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10">
+            <ChevronDown className="w-6 h-6 text-gold-500/60" />
+          </div>
         </div>
-        
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10">
-          <ChevronDown className="w-6 h-6 text-gold-500/60" />
+
+        {/* MOBILE: Image as contained block + CTA below */}
+        <div className="md:hidden">
+          {/* Fleur accent top */}
+          <div className="flex justify-center pt-6 pb-2">
+            <FleurDeLis size={48} opacity={0.35} color="#D4A012" />
+          </div>
+          {/* Full-width banner image — contained, no crop */}
+          <div className="relative w-full">
+            <Image
+              src="/images/hero-batalha.jpg"
+              alt="O Despertar da Fé - Junte-se na única batalha que salva"
+              width={2752}
+              height={1536}
+              className="w-full h-auto"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/30" />
+          </div>
+          {/* CTA below image */}
+          <div className="px-4 py-8 text-center -mt-8 relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-dark-800/80 backdrop-blur-sm mb-5">
+              <Flame className="w-4 h-4 text-gold-500" />
+              <span className="text-gold-400 text-xs font-medium tracking-wider uppercase">Curso Online Exclusivo</span>
+            </div>
+            <p className="text-base text-gray-200 mx-auto mb-6 leading-relaxed">
+              Uma jornada transformadora que vai despertar o poder da fé na sua vida.
+            </p>
+            <EmailCapture variant="dark" buttonText="🔔 Avise-me" />
+            <p className="text-gray-500 text-xs mt-3">Seja o primeiro a saber quando as inscrições abrirem</p>
+          </div>
         </div>
       </section>
 
