@@ -48,7 +48,7 @@ export default function DarkLandingPage() {
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-b from-dark-800/50 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-dark-800/80 via-dark-800/50 to-transparent" style={{ height: '35%' }} />
           </div>
           <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
           <div className="absolute top-16 left-8 animate-float pointer-events-none">
@@ -57,16 +57,24 @@ export default function DarkLandingPage() {
           <div className="absolute top-24 right-12 animate-float pointer-events-none" style={{ animationDelay: '1.5s' }}>
             <FleurDeLis size={40} opacity={0.16} />
           </div>
-          {/* Official Logo - top of hero (watermark style) */}
+          {/* Official Logo + Title overlay */}
           <div className="relative z-10 pt-8 px-4">
-            <div className="max-w-6xl mx-auto flex justify-start">
-              <div className="relative w-[140px] h-[140px]" >
+            <div className="max-w-6xl mx-auto flex justify-start items-center gap-6">
+              <div className="relative w-[140px] h-[140px] flex-shrink-0">
                 <Image
                   src="/images/logo-transparent.png"
                   alt="Despertar da Fé - Logo Oficial"
                   fill
                   className="object-contain drop-shadow-[0_0_20px_rgba(212,160,18,0.4)]"
                 />
+              </div>
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-serif font-bold text-gradient-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  O Despertar da Fé
+                </h1>
+                <p className="text-gold-400 text-lg lg:text-xl font-serif mt-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+                  Junte-se na única batalha que salva
+                </p>
               </div>
             </div>
           </div>
@@ -115,6 +123,16 @@ export default function DarkLandingPage() {
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/30" />
+            <div className="absolute inset-0 bg-gradient-to-b from-dark-800/80 via-dark-800/40 to-transparent" style={{ height: '40%' }} />
+            {/* Gold title overlay to cover baked-in black text */}
+            <div className="absolute top-4 left-0 right-0 z-10 text-center px-4">
+              <h1 className="text-3xl font-serif font-bold text-gradient-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                O Despertar da Fé
+              </h1>
+              <p className="text-gold-400 text-base font-serif mt-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                Junte-se na única batalha que salva
+              </p>
+            </div>
           </div>
           {/* CTA below image */}
           <div className="px-4 py-8 text-center -mt-8 relative z-10">
