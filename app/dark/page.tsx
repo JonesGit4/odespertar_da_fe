@@ -57,10 +57,17 @@ export default function DarkLandingPage() {
           <div className="absolute top-24 right-12 animate-float pointer-events-none" style={{ animationDelay: '1.5s' }}>
             <FleurDeLis size={40} opacity={0.16} />
           </div>
-          {/* Top fleur accent */}
+          {/* Official Logo - top of hero */}
           <div className="relative z-10 pt-8 px-4">
             <div className="max-w-6xl mx-auto flex justify-start">
-              <FleurDeLis size={64} opacity={0.35} color="#D4A012" />
+              <div className="relative w-[120px] h-[120px]">
+                <Image
+                  src="/images/logo-oficial.jpeg"
+                  alt="Despertar da Fé - Logo Oficial"
+                  fill
+                  className="object-contain drop-shadow-[0_0_15px_rgba(212,160,18,0.4)]"
+                />
+              </div>
             </div>
           </div>
           {/* Bottom CTA */}
@@ -71,8 +78,7 @@ export default function DarkLandingPage() {
                 <span className="text-gold-400 text-sm font-medium tracking-wider uppercase">Curso Online Exclusivo</span>
               </div>
               <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-8 animate-fade-in leading-relaxed drop-shadow-lg" style={{ animationDelay: '0.3s' }}>
-                Uma jornada transformadora que vai despertar o poder da fé na sua vida.
-                Descubra uma vida plena, com propósito e cheia de significado.
+                Mais que um curso. Uma jornada transformadora que vai lhe ajudar a enxergar os mistérios nunca revelados sobre os tempos finais, e te ensinar sobre preservação da Fé, dogmas e a VERDADEIRA TRADIÇÃO da Igreja.
               </p>
               <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
                 <EmailCapture variant="dark" buttonText="🔔 Avise-me" />
@@ -87,9 +93,16 @@ export default function DarkLandingPage() {
 
         {/* MOBILE: Image as contained block + CTA below */}
         <div className="md:hidden">
-          {/* Fleur accent top */}
+          {/* Official Logo - mobile centered */}
           <div className="flex justify-center pt-6 pb-2">
-            <FleurDeLis size={48} opacity={0.35} color="#D4A012" />
+            <div className="relative w-[100px] h-[100px]">
+              <Image
+                src="/images/logo-oficial.jpeg"
+                alt="Despertar da Fé - Logo Oficial"
+                fill
+                className="object-contain drop-shadow-[0_0_15px_rgba(212,160,18,0.4)]"
+              />
+            </div>
           </div>
           {/* Full-width banner image — contained, no crop */}
           <div className="relative w-full">
@@ -110,7 +123,7 @@ export default function DarkLandingPage() {
               <span className="text-gold-400 text-xs font-medium tracking-wider uppercase">Curso Online Exclusivo</span>
             </div>
             <p className="text-base text-gray-200 mx-auto mb-6 leading-relaxed">
-              Uma jornada transformadora que vai despertar o poder da fé na sua vida.
+              Mais que um curso. Uma jornada transformadora que vai lhe ajudar a enxergar os mistérios nunca revelados sobre os tempos finais, e te ensinar sobre preservação da Fé, dogmas e a VERDADEIRA TRADIÇÃO da Igreja.
             </p>
             <EmailCapture variant="dark" buttonText="🔔 Avise-me" />
             <p className="text-gray-500 text-xs mt-3">Seja o primeiro a saber quando as inscrições abrirem</p>
@@ -139,7 +152,7 @@ export default function DarkLandingPage() {
           </div>
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-center">
             <p className="text-gold-400 font-serif text-lg md:text-2xl font-bold drop-shadow-lg">
-              Bispo Dom Rodrigo & Victor Stavale
+              Victor Stavale & Bispo Dom Rodrigo
             </p>
             <p className="text-gray-300 text-sm mt-1 drop-shadow-md">
               Unidos na batalha da fé
@@ -195,7 +208,7 @@ export default function DarkLandingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-800/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white/90 text-sm font-medium">Bispo Dom Rodrigo & Victor Stavale</p>
+                  <p className="text-white/90 text-sm font-medium">Victor Stavale & Bispo Dom Rodrigo</p>
                 </div>
               </div>
               {/* Fleur accent on photo */}
@@ -218,7 +231,7 @@ export default function DarkLandingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-800/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white/90 text-sm font-medium">Dom Rodrigo & Victor Stavale — Unidos pela fé</p>
+                  <p className="text-white/90 text-sm font-medium">Victor Stavale & Dom Rodrigo — Unidos pela fé</p>
                 </div>
               </div>
               <div className="absolute -bottom-3 -left-3 pointer-events-none">
@@ -602,9 +615,9 @@ export default function DarkLandingPage() {
         </div>
 
         <div className="reveal max-w-3xl mx-auto text-center relative z-10">
-          {/* Logo accent */}
-          <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-8 border-2 border-gold-500/40">
-            <Image src="/images/victor-closeup.jpeg" alt="Victor Stavale" fill className="object-cover" />
+          {/* Logo oficial */}
+          <div className="relative w-28 h-28 mx-auto mb-8">
+            <Image src="/images/logo-oficial.jpeg" alt="Despertar da Fé - Logo Oficial" fill className="object-contain drop-shadow-[0_0_15px_rgba(212,160,18,0.4)]" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             Não perca essa <span className="text-gradient-gold">oportunidade</span>
@@ -621,9 +634,16 @@ export default function DarkLandingPage() {
       {/* ══════════ FOOTER ══════════ */}
       <footer className="py-12 px-4 border-t border-gold-500/10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Fleur-de-lis in footer */}
+          {/* Logo in footer */}
           <div className="flex justify-center mb-4">
-            <FleurDeLis size={48} opacity={0.35} color="#D4A012" />
+            <div className="relative w-[60px] h-[60px]">
+              <Image
+                src="/images/logo-oficial.jpeg"
+                alt="Despertar da Fé"
+                fill
+                className="object-contain drop-shadow-[0_0_10px_rgba(212,160,18,0.3)]"
+              />
+            </div>
           </div>
           <h3 className="text-xl font-serif font-bold text-gradient-gold mb-2">O Despertar da Fé</h3>
           <p className="text-gray-600 text-sm">© {new Date().getFullYear()} O Despertar da Fé. Todos os direitos reservados.</p>
