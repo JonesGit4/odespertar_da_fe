@@ -93,25 +93,25 @@ export default function DarkLandingPage() {
 
         {/* MOBILE: Image as contained block + CTA below */}
         <div className="md:hidden">
-          {/* Official Logo - mobile centered */}
-          <div className="flex justify-center pt-6 pb-2">
-            <div className="relative w-[100px] h-[100px]">
+          {/* Official Logo - mobile FULL WIDTH */}
+          <div className="flex justify-center px-6 pt-6 pb-2">
+            <div className="relative w-full aspect-square max-w-[280px]">
               <Image
                 src="/images/logo-oficial.jpeg"
                 alt="Despertar da Fé - Logo Oficial"
                 fill
-                className="object-contain drop-shadow-[0_0_15px_rgba(212,160,18,0.4)]"
+                className="object-contain drop-shadow-[0_0_20px_rgba(212,160,18,0.5)]"
               />
             </div>
           </div>
-          {/* Full-width banner image — contained, no crop */}
-          <div className="relative w-full">
+          {/* Hero image — zoomed in on mobile for impact */}
+          <div className="relative w-full h-[55vh] overflow-hidden">
             <Image
               src="/images/hero-batalha.jpg"
               alt="O Despertar da Fé - Junte-se na única batalha que salva"
-              width={2752}
-              height={1536}
-              className="w-full h-auto"
+              fill
+              className="object-cover scale-125"
+              style={{ objectPosition: '50% 40%' }}
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/30" />
@@ -133,13 +133,13 @@ export default function DarkLandingPage() {
 
       {/* ══════════ BISHOP + VIKTOR FEATURE BANNER ══════════ */}
       <section className="relative py-0 overflow-hidden">
-        <div className="relative w-full aspect-[16/7] md:aspect-[16/6]">
+        <div className="relative w-full aspect-[3/4] sm:aspect-[16/9] md:aspect-[16/6]">
           <Image
             src="/images/banner-hero.jpeg"
             alt="Bispo Dom Rodrigo e Victor Stavale - O Despertar da Fé"
             fill
-            className="object-cover"
-            style={{ objectPosition: '50% 20%' }}
+            className="object-cover scale-110 sm:scale-100"
+            style={{ objectPosition: '50% 15%' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/50" />
           <div className="absolute inset-0 bg-gradient-to-r from-dark-800/60 via-transparent to-dark-800/60" />
@@ -615,9 +615,9 @@ export default function DarkLandingPage() {
         </div>
 
         <div className="reveal max-w-3xl mx-auto text-center relative z-10">
-          {/* Logo oficial */}
-          <div className="relative w-28 h-28 mx-auto mb-8">
-            <Image src="/images/logo-oficial.jpeg" alt="Despertar da Fé - Logo Oficial" fill className="object-contain drop-shadow-[0_0_15px_rgba(212,160,18,0.4)]" />
+          {/* Logo oficial - responsive full width */}
+          <div className="relative w-full max-w-[320px] md:max-w-[240px] aspect-square mx-auto mb-8">
+            <Image src="/images/logo-oficial.jpeg" alt="Despertar da Fé - Logo Oficial" fill className="object-contain drop-shadow-[0_0_20px_rgba(212,160,18,0.5)]" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             Não perca essa <span className="text-gradient-gold">oportunidade</span>
@@ -634,17 +634,6 @@ export default function DarkLandingPage() {
       {/* ══════════ FOOTER ══════════ */}
       <footer className="py-12 px-4 border-t border-gold-500/10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Logo in footer */}
-          <div className="flex justify-center mb-4">
-            <div className="relative w-[60px] h-[60px]">
-              <Image
-                src="/images/logo-oficial.jpeg"
-                alt="Despertar da Fé"
-                fill
-                className="object-contain drop-shadow-[0_0_10px_rgba(212,160,18,0.3)]"
-              />
-            </div>
-          </div>
           <h3 className="text-xl font-serif font-bold text-gradient-gold mb-2">O Despertar da Fé</h3>
           <p className="text-gray-600 text-sm">© {new Date().getFullYear()} O Despertar da Fé. Todos os direitos reservados.</p>
         </div>
