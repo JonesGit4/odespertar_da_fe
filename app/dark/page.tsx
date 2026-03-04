@@ -48,7 +48,9 @@ export default function DarkLandingPage() {
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-b from-dark-800/80 via-dark-800/50 to-transparent" style={{ height: '35%' }} />
+            {/* Solid dark band at top to fully cover baked-in black text in JPEG */}
+            <div className="absolute inset-x-0 top-0 bg-dark-800" style={{ height: '22%' }} />
+            <div className="absolute inset-x-0 bg-gradient-to-b from-dark-800 to-transparent" style={{ top: '22%', height: '15%' }} />
           </div>
           <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
           <div className="absolute top-16 left-8 animate-float pointer-events-none">
@@ -123,13 +125,15 @@ export default function DarkLandingPage() {
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/30" />
-            <div className="absolute inset-0 bg-gradient-to-b from-dark-800/80 via-dark-800/40 to-transparent" style={{ height: '40%' }} />
-            {/* Gold title overlay to cover baked-in black text */}
-            <div className="absolute top-4 left-0 right-0 z-10 text-center px-4">
-              <h1 className="text-3xl font-serif font-bold text-gradient-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            {/* Solid dark band at top to cover baked-in black text */}
+            <div className="absolute inset-x-0 top-0 bg-dark-800" style={{ height: '25%' }} />
+            <div className="absolute inset-x-0 bg-gradient-to-b from-dark-800 to-transparent" style={{ top: '25%', height: '15%' }} />
+            {/* Gold title overlay */}
+            <div className="absolute top-3 left-0 right-0 z-10 text-center px-4">
+              <h1 className="text-2xl font-serif font-bold text-gradient-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                 O Despertar da Fé
               </h1>
-              <p className="text-gold-400 text-base font-serif mt-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+              <p className="text-gold-400 text-sm font-serif mt-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
                 Junte-se na única batalha que salva
               </p>
             </div>
