@@ -274,7 +274,7 @@ export default function DarkLandingPage() {
               { icon: Star, title: 'Todos os níveis', desc: 'Seja iniciante ou experiente, o curso se adapta à sua jornada pessoal.' },
             ].map((item, i) => (
               <div key={i} className="group p-6 rounded-2xl border border-gold-500/10 bg-dark-600/40 backdrop-blur-sm hover:border-gold-500/30 hover:bg-dark-500/40 transition-all duration-500">
-                <div className="w-12 h-12 rounded-xl bg-gold-500/5 flex items-center justify-center mb-4 group-hover:bg-gold-500/10 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-gold-500/[3%] flex items-center justify-center mb-4 group-hover:bg-gold-500/10 transition-colors">
                   <item.icon className="w-6 h-6 text-gold-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gold-300 mb-2">{item.title}</h3>
@@ -312,7 +312,7 @@ export default function DarkLandingPage() {
               { step: '05', title: 'Transformação', desc: 'Experimente uma fé renovada e desperta, vivendo com mais propósito e significado.', icon: Sparkles },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4 md:gap-6 p-5 md:p-6 rounded-2xl border border-gold-500/10 bg-dark-600/30 hover:border-gold-500/20 transition-all group">
-                <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-gold-500/10 to-gold-600/5 flex items-center justify-center group-hover:from-gold-500/20 group-hover:to-gold-600/10 transition-all">
+                <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center group-hover:from-gold-500/20 group-hover:to-gold-600/10 transition-all">
                   <span className="text-gold-500 font-serif text-xl md:text-2xl font-bold">{item.step}</span>
                 </div>
                 <div>
@@ -349,7 +349,7 @@ export default function DarkLandingPage() {
               { icon: Award, title: 'Certificado', desc: 'Certificado de conclusão ao completar todos os módulos do curso.' },
             ].map((item, i) => (
               <div key={i} className="text-center p-6 rounded-2xl border border-gold-500/10 bg-dark-600/30 hover:border-gold-500/25 transition-all group">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-500/10 to-gold-600/5 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <item.icon className="w-7 h-7 text-gold-600" />
                 </div>
                 <h3 className="text-lg font-bold text-gold-300 mb-2">{item.title}</h3>
@@ -540,8 +540,8 @@ export default function DarkLandingPage() {
           
           <div className="reveal grid md:grid-cols-3 gap-8">
             <div className="group p-6 md:p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/10 to-gold-600/5 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                <Play className="w-6 h-6 text-gold-500/20" />
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+                <Play className="w-6 h-6 text-gold-500/10" />
               </div>
               <h3 className="text-xl font-serif font-bold text-gold-400 mb-3">Aula Prévia Exclusiva</h3>
               <p className="text-gold-400 text-base leading-relaxed">
@@ -550,8 +550,8 @@ export default function DarkLandingPage() {
             </div>
             
             <div className="group p-6 md:p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/10 to-gold-600/5 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                <Camera className="w-6 h-6 text-gold-500/20" />
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+                <Camera className="w-6 h-6 text-gold-500/10" />
               </div>
               <h3 className="text-xl font-serif font-bold text-gold-400 mb-3">Foto Lado a Lado Exclusiva</h3>
               <p className="text-gold-400 text-base leading-relaxed">
@@ -560,8 +560,8 @@ export default function DarkLandingPage() {
             </div>
             
             <div className="group p-6 md:p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/10 to-gold-600/5 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                <Ticket className="w-6 h-6 text-gold-500/20" />
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+                <Ticket className="w-6 h-6 text-gold-500/10" />
               </div>
               <h3 className="text-xl font-serif font-bold text-gold-400 mb-3">50% Voucher Presencial</h3>
               <p className="text-gold-400 text-base leading-relaxed">
@@ -588,8 +588,8 @@ export default function DarkLandingPage() {
                 <FleurDeLis size={80} opacity={0.16} />
               </div>
               <div className="relative z-10">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/10 to-gold-600/5 flex items-center justify-center mx-auto mb-5">
-                  <Ticket className="w-6 h-6 text-gold-400/20" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-5">
+                  <Ticket className="w-6 h-6 text-gold-400/10" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-gold-100 mb-3">30% Voucher Presencial 2026</h3>
                 <p className="text-gold-400 leading-relaxed">
