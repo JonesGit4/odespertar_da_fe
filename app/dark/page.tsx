@@ -93,9 +93,9 @@ export default function DarkLandingPage() {
 
         {/* MOBILE: Image as contained block + CTA below */}
         <div className="md:hidden">
-          {/* Official Logo - mobile FULL WIDTH (watermark style) */}
-          <div className="flex justify-center px-4 pt-6 pb-2">
-            <div className="relative w-full aspect-square max-w-[280px]" >
+          {/* Official Logo - mobile (watermark style) */}
+          <div className="flex justify-center px-4 pt-4 -mb-8 relative z-10">
+            <div className="relative w-full aspect-square max-w-[220px]">
               <Image
                 src="/images/logo-transparent.png"
                 alt="Despertar da Fé - Logo Oficial"
@@ -114,7 +114,7 @@ export default function DarkLandingPage() {
               style={{ objectPosition: '50% 40%' }}
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-transparent to-dark-800/80" />
           </div>
           {/* CTA below image */}
           <div className="px-4 py-8 text-center -mt-8 relative z-10">
@@ -162,7 +162,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ O QUE É ══════════ */}
-      <section className="py-8 md:py-20 px-4 relative">
+      <section className="py-4 md:py-12 px-4 relative">
         {/* Fleur-de-lis divider */}
         <FleurDeLisDivider className="mb-4 md:mb-12" />
 
@@ -230,9 +230,7 @@ export default function DarkLandingPage() {
                   style={{ objectPosition: '50% 15%' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-800/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-gold-300 text-sm font-medium">Victor Stavale & Dom Rodrigo — Unidos pela fé</p>
-                </div>
+                {/* Names removed per request */}
               </div>
               <div className="absolute -bottom-3 -left-3 pointer-events-none">
                 <FleurDeLis size={32} opacity={0.22} />
@@ -251,7 +249,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ PARA QUEM ══════════ */}
-      <section className="py-8 md:py-20 px-4 bg-gradient-to-b from-dark-800 via-dark-700/50 to-dark-800 relative">
+      <section className="py-4 md:py-12 px-4 bg-gradient-to-b from-dark-800 via-dark-700/50 to-dark-800 relative">
         {/* Fleur pattern background */}
         <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
         
@@ -274,7 +272,7 @@ export default function DarkLandingPage() {
               { icon: Star, title: 'Todos os níveis', desc: 'Seja iniciante ou experiente, o curso se adapta à sua jornada pessoal.' },
             ].map((item, i) => (
               <div key={i} className="group p-6 rounded-2xl border border-gold-500/10 bg-dark-600/40 backdrop-blur-sm hover:border-gold-500/30 hover:bg-dark-500/40 transition-all duration-500">
-                <div className="w-12 h-12 rounded-xl bg-gold-500/[3%] flex items-center justify-center mb-4 group-hover:bg-gold-500/10 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-gold-500/[2%] flex items-center justify-center mb-4 group-hover:bg-gold-500/[4%] transition-colors">
                   <item.icon className="w-6 h-6 text-gold-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gold-300 mb-2">{item.title}</h3>
@@ -286,7 +284,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ COMO FUNCIONA ══════════ */}
-      <section className="py-8 md:py-20 px-4 relative">
+      <section className="py-4 md:py-12 px-4 relative">
         <FleurDeLisDivider className="mb-4 md:mb-12" />
         
         {/* Large background fleur */}
@@ -329,7 +327,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ MATERIAIS EXTRAS + GALLERY ══════════ */}
-      <section className="py-8 md:py-20 px-4 bg-gradient-to-b from-dark-800 via-dark-700/50 to-dark-800 relative">
+      <section className="py-4 md:py-12 px-4 bg-gradient-to-b from-dark-800 via-dark-700/50 to-dark-800 relative">
         <div className="absolute inset-0 fleur-bg-pattern pointer-events-none" />
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -405,7 +403,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ PREÇOS / LOTES ══════════ */}
-      <section className="py-8 md:py-20 px-4 relative" id="preco">
+      <section className="py-4 md:py-12 px-4 relative" id="preco">
         <FleurDeLisDivider className="mb-4 md:mb-12" />
 
         {/* Decorative fleur accents */}
@@ -484,7 +482,7 @@ export default function DarkLandingPage() {
                   </div>
                 ))}
               </div>
-              <button className="btn-shine w-full mt-8 py-4 rounded-xl border border-gold-500/30 text-gold-400 font-bold text-lg transition-all hover:bg-gold-500/10">
+              <button className="btn-shine w-full mt-8 py-4 rounded-xl border border-gold-500/30 text-gold-400 font-bold text-lg transition-all hover:bg-gold-500/[4%]">
                 🔔 Avise-me
               </button>
             </div>
@@ -520,7 +518,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ BÔNUS LOTE 1 ══════════ */}
-      <section className="py-8 md:py-20 px-4 bg-gradient-to-b from-dark-800 via-dark-700/30 to-dark-800 relative">
+      <section className="py-4 md:py-12 px-4 bg-gradient-to-b from-dark-800 via-dark-700/30 to-dark-800 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,160,18,0.05)_0%,transparent_50%)]" />
         {/* Fleur accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
@@ -541,7 +539,7 @@ export default function DarkLandingPage() {
           <div className="reveal grid md:grid-cols-3 gap-8">
             <div className="group p-6 md:p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                <Play className="w-6 h-6 text-gold-500/10" />
+                <Play className="w-6 h-6 text-gold-500/[4%]" />
               </div>
               <h3 className="text-xl font-serif font-bold text-gold-400 mb-3">Aula Prévia Exclusiva</h3>
               <p className="text-gold-400 text-base leading-relaxed">
@@ -551,7 +549,7 @@ export default function DarkLandingPage() {
             
             <div className="group p-6 md:p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                <Camera className="w-6 h-6 text-gold-500/10" />
+                <Camera className="w-6 h-6 text-gold-500/[4%]" />
               </div>
               <h3 className="text-xl font-serif font-bold text-gold-400 mb-3">Foto Lado a Lado Exclusiva</h3>
               <p className="text-gold-400 text-base leading-relaxed">
@@ -561,7 +559,7 @@ export default function DarkLandingPage() {
             
             <div className="group p-6 md:p-8 rounded-2xl border border-gold-500/20 bg-dark-600/40 hover:border-gold-500/40 transition-all text-center">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                <Ticket className="w-6 h-6 text-gold-500/10" />
+                <Ticket className="w-6 h-6 text-gold-500/[4%]" />
               </div>
               <h3 className="text-xl font-serif font-bold text-gold-400 mb-3">50% Voucher Presencial</h3>
               <p className="text-gold-400 text-base leading-relaxed">
@@ -573,7 +571,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ BÔNUS LOTE 2 ══════════ */}
-      <section className="py-8 md:py-20 px-4">
+      <section className="py-4 md:py-12 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="reveal text-center mb-12">
             <span className="text-gold-500/60 text-sm font-medium tracking-[0.3em] uppercase">Lote 2</span>
@@ -589,7 +587,7 @@ export default function DarkLandingPage() {
               </div>
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/[4%] to-gold-600/[2%] flex items-center justify-center mx-auto mb-5">
-                  <Ticket className="w-6 h-6 text-gold-400/10" />
+                  <Ticket className="w-6 h-6 text-gold-400/[4%]" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-gold-100 mb-3">30% Voucher Presencial 2026</h3>
                 <p className="text-gold-400 leading-relaxed">
@@ -602,7 +600,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ CTA FINAL ══════════ */}
-      <section className="py-8 md:py-20 px-4 relative overflow-hidden">
+      <section className="py-4 md:py-12 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,160,18,0.08)_0%,transparent_60%)]" />
         <FleurDeLisDivider className="mb-4 md:mb-12" />
 
@@ -632,7 +630,7 @@ export default function DarkLandingPage() {
       </section>
 
       {/* ══════════ FOOTER ══════════ */}
-      <footer className="py-8 md:py-12 px-4 border-t border-gold-500/10">
+      <footer className="py-4 md:py-8 px-4 border-t border-gold-500/10">
         <div className="max-w-5xl mx-auto text-center">
           <h3 className="text-xl font-serif font-bold text-gradient-gold mb-2">O Despertar da Fé</h3>
           <p className="text-gold-600 text-sm">© {new Date().getFullYear()} O Despertar da Fé. Todos os direitos reservados.</p>
